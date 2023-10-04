@@ -5,42 +5,86 @@ Date: September 30, 2023
 Usage:
 """
 
-D = ["Deposit"]
-W = ["Withdraw"]
-Q = ["Quit"]
+interface_values = ["W", "D", "Q"]
 
 import random
 users_bank_balance = random.randint(-1000, 10000)
 users_bank_balance = "4298"
-float(users_bank_balance)
+users_bank_balance = float(users_bank_balance)
 print(float(users_bank_balance))
 
 border = "****************************************"
 print(border)
 
 pixell = "PIXELL RIVER FINANCIAL"
-pixell_centered = pixell.center(40)
-print(pixell_centered)
+print(pixell.center(40))
 
 atm_simulator = "ATM Simulator"
-atm_simulator_centered = atm_simulator.center(40)
-print(atm_simulator_centered)
+print(atm_simulator.center(40))
 
 current_balance = (float(users_bank_balance))
 current_balance_message = (f"Your current balance is: ${current_balance}")
-current_balance_message_centered = current_balance_message.center(40)
-print(current_balance_message_centered)
+print(current_balance_message.center(40))
 
 deposit_input = ("Deposit: D")
-deposit_input_centered = deposit_input.center(40)
-print(deposit_input_centered)
+print(deposit_input.center(40))
 
 withdraw_input = ("Withdraw: W")
-withdraw_input_centered = withdraw_input.center(40)
-print(withdraw_input_centered)
+print(withdraw_input.center(40))
 
 quit_input = ("To Quit: Q")
-quit_input_centered = quit_input.center(40)
-print(quit_input_centered)
-
+print(quit_input.center(40))
 print(border)
+
+invalid_selection = "INVALID SELECTION"
+insufficient_funds = "INSUFFICIENT FUNDS"
+
+selection = input("Enter your selection: ")
+if selection not in interface_values:
+    print(border)
+    print(invalid_selection.center(40))
+    print(border)
+else: transaction_amount = float(input("Enter amount of transaction: "))
+if transaction_amount < 0:
+    print("Invalid transaction amount")
+elif selection == "D":
+    users_bank_balance + transaction_amount
+    print(border)
+    print(f"Your new balance is: {users_bank_balance + transaction_amount: 2f}")
+    print(border)
+elif selection == "W":
+    if transaction_amount > users_bank_balance:
+        print(border)
+        print(insufficient_funds.center(40))
+        print(border)
+    else:
+        users_bank_balance - transaction_amount
+        print(border)
+        print(f"Your current balance is {users_bank_balance - transaction_amount: 2f}")
+        print(border)
+
+
+
+    
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
